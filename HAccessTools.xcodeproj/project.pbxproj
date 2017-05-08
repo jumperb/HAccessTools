@@ -1,0 +1,480 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		155BD1A91EC055E900D46E73 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 155BD1A81EC055E900D46E73 /* main.m */; };
+		155BD1AC1EC055E900D46E73 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 155BD1AB1EC055E900D46E73 /* AppDelegate.m */; };
+		155BD1AF1EC055E900D46E73 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 155BD1AE1EC055E900D46E73 /* ViewController.m */; };
+		155BD1B41EC055E900D46E73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 155BD1B31EC055E900D46E73 /* Assets.xcassets */; };
+		155BD1B71EC055E900D46E73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 155BD1B51EC055E900D46E73 /* LaunchScreen.storyboard */; };
+		155BD1C81EC0569C00D46E73 /* HNetworkAutoMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 155BD1C11EC0569C00D46E73 /* HNetworkAutoMock.m */; };
+		155BD1C91EC0569C00D46E73 /* TestMocker.m in Sources */ = {isa = PBXBuildFile; fileRef = 155BD1C51EC0569C00D46E73 /* TestMocker.m */; };
+		155BD1D81EC0571000D46E73 /* PBannerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 155BD1CC1EC0571000D46E73 /* PBannerItem.m */; };
+		155BD1D91EC0571000D46E73 /* PCategoryGuidItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 155BD1CE1EC0571000D46E73 /* PCategoryGuidItem.m */; };
+		155BD1DA1EC0571000D46E73 /* PFeedDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 155BD1D11EC0571000D46E73 /* PFeedDAO.m */; };
+		155BD1DB1EC0571000D46E73 /* PMiddleCommodity.m in Sources */ = {isa = PBXBuildFile; fileRef = 155BD1D31EC0571000D46E73 /* PMiddleCommodity.m */; };
+		155BD1DC1EC0571000D46E73 /* PMiniArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 155BD1D51EC0571000D46E73 /* PMiniArticle.m */; };
+		155BD1DD1EC0571000D46E73 /* PMiniCommodity.m in Sources */ = {isa = PBXBuildFile; fileRef = 155BD1D71EC0571000D46E73 /* PMiniCommodity.m */; };
+		155BD1E11EC059F700D46E73 /* HNetworkLogHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 155BD1E01EC059F700D46E73 /* HNetworkLogHelper.m */; };
+		FF9CBA9EB76661E5254AB31A /* libPods-HAccessTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAAF60AB2EED91EA97487C3C /* libPods-HAccessTools.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		155BD1A41EC055E900D46E73 /* HAccessTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HAccessTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		155BD1A81EC055E900D46E73 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		155BD1AA1EC055E900D46E73 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		155BD1AB1EC055E900D46E73 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		155BD1AD1EC055E900D46E73 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		155BD1AE1EC055E900D46E73 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		155BD1B31EC055E900D46E73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		155BD1B61EC055E900D46E73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		155BD1B81EC055E900D46E73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		155BD1C01EC0569C00D46E73 /* HNetworkAutoMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNetworkAutoMock.h; sourceTree = "<group>"; };
+		155BD1C11EC0569C00D46E73 /* HNetworkAutoMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNetworkAutoMock.m; sourceTree = "<group>"; };
+		155BD1C41EC0569C00D46E73 /* TestMocker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestMocker.h; sourceTree = "<group>"; };
+		155BD1C51EC0569C00D46E73 /* TestMocker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestMocker.m; sourceTree = "<group>"; };
+		155BD1CB1EC0571000D46E73 /* PBannerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBannerItem.h; sourceTree = "<group>"; };
+		155BD1CC1EC0571000D46E73 /* PBannerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBannerItem.m; sourceTree = "<group>"; };
+		155BD1CD1EC0571000D46E73 /* PCategoryGuidItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCategoryGuidItem.h; sourceTree = "<group>"; };
+		155BD1CE1EC0571000D46E73 /* PCategoryGuidItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCategoryGuidItem.m; sourceTree = "<group>"; };
+		155BD1CF1EC0571000D46E73 /* PCommodityDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCommodityDefines.h; sourceTree = "<group>"; };
+		155BD1D01EC0571000D46E73 /* PFeedDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFeedDAO.h; sourceTree = "<group>"; };
+		155BD1D11EC0571000D46E73 /* PFeedDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFeedDAO.m; sourceTree = "<group>"; };
+		155BD1D21EC0571000D46E73 /* PMiddleCommodity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMiddleCommodity.h; sourceTree = "<group>"; };
+		155BD1D31EC0571000D46E73 /* PMiddleCommodity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMiddleCommodity.m; sourceTree = "<group>"; };
+		155BD1D41EC0571000D46E73 /* PMiniArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMiniArticle.h; sourceTree = "<group>"; };
+		155BD1D51EC0571000D46E73 /* PMiniArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMiniArticle.m; sourceTree = "<group>"; };
+		155BD1D61EC0571000D46E73 /* PMiniCommodity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMiniCommodity.h; sourceTree = "<group>"; };
+		155BD1D71EC0571000D46E73 /* PMiniCommodity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMiniCommodity.m; sourceTree = "<group>"; };
+		155BD1DF1EC059F700D46E73 /* HNetworkLogHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNetworkLogHelper.h; sourceTree = "<group>"; };
+		155BD1E01EC059F700D46E73 /* HNetworkLogHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNetworkLogHelper.m; sourceTree = "<group>"; };
+		1A39DD00BD3F049464FD4C45 /* Pods-HAccessTools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HAccessTools.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HAccessTools/Pods-HAccessTools.debug.xcconfig"; sourceTree = "<group>"; };
+		DA0ACD1D7D5D6E6785861D16 /* Pods-HAccessTools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HAccessTools.release.xcconfig"; path = "Pods/Target Support Files/Pods-HAccessTools/Pods-HAccessTools.release.xcconfig"; sourceTree = "<group>"; };
+		FAAF60AB2EED91EA97487C3C /* libPods-HAccessTools.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HAccessTools.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		155BD1A11EC055E900D46E73 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF9CBA9EB76661E5254AB31A /* libPods-HAccessTools.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		155BD19B1EC055E900D46E73 = {
+			isa = PBXGroup;
+			children = (
+				155BD1BE1EC0569C00D46E73 /* Classes */,
+				155BD1C21EC0569C00D46E73 /* Demo */,
+				155BD1A61EC055E900D46E73 /* HAccessTools */,
+				155BD1A51EC055E900D46E73 /* Products */,
+				C160B8B89D7562312D881D90 /* Pods */,
+				C145B495FFF9D97DF3EF2ECA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		155BD1A51EC055E900D46E73 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				155BD1A41EC055E900D46E73 /* HAccessTools.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		155BD1A61EC055E900D46E73 /* HAccessTools */ = {
+			isa = PBXGroup;
+			children = (
+				155BD1AA1EC055E900D46E73 /* AppDelegate.h */,
+				155BD1AB1EC055E900D46E73 /* AppDelegate.m */,
+				155BD1AD1EC055E900D46E73 /* ViewController.h */,
+				155BD1AE1EC055E900D46E73 /* ViewController.m */,
+				155BD1B31EC055E900D46E73 /* Assets.xcassets */,
+				155BD1B51EC055E900D46E73 /* LaunchScreen.storyboard */,
+				155BD1B81EC055E900D46E73 /* Info.plist */,
+				155BD1A71EC055E900D46E73 /* Supporting Files */,
+			);
+			path = HAccessTools;
+			sourceTree = "<group>";
+		};
+		155BD1A71EC055E900D46E73 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				155BD1A81EC055E900D46E73 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		155BD1BE1EC0569C00D46E73 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				155BD1DE1EC059DC00D46E73 /* LogHelper */,
+				155BD1BF1EC0569C00D46E73 /* AutoMocker */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		155BD1BF1EC0569C00D46E73 /* AutoMocker */ = {
+			isa = PBXGroup;
+			children = (
+				155BD1C01EC0569C00D46E73 /* HNetworkAutoMock.h */,
+				155BD1C11EC0569C00D46E73 /* HNetworkAutoMock.m */,
+			);
+			path = AutoMocker;
+			sourceTree = "<group>";
+		};
+		155BD1C21EC0569C00D46E73 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				155BD1C31EC0569C00D46E73 /* AutoMocker */,
+				155BD1CB1EC0571000D46E73 /* PBannerItem.h */,
+				155BD1CC1EC0571000D46E73 /* PBannerItem.m */,
+				155BD1CD1EC0571000D46E73 /* PCategoryGuidItem.h */,
+				155BD1CE1EC0571000D46E73 /* PCategoryGuidItem.m */,
+				155BD1CF1EC0571000D46E73 /* PCommodityDefines.h */,
+				155BD1D01EC0571000D46E73 /* PFeedDAO.h */,
+				155BD1D11EC0571000D46E73 /* PFeedDAO.m */,
+				155BD1D21EC0571000D46E73 /* PMiddleCommodity.h */,
+				155BD1D31EC0571000D46E73 /* PMiddleCommodity.m */,
+				155BD1D41EC0571000D46E73 /* PMiniArticle.h */,
+				155BD1D51EC0571000D46E73 /* PMiniArticle.m */,
+				155BD1D61EC0571000D46E73 /* PMiniCommodity.h */,
+				155BD1D71EC0571000D46E73 /* PMiniCommodity.m */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		155BD1C31EC0569C00D46E73 /* AutoMocker */ = {
+			isa = PBXGroup;
+			children = (
+				155BD1C41EC0569C00D46E73 /* TestMocker.h */,
+				155BD1C51EC0569C00D46E73 /* TestMocker.m */,
+			);
+			path = AutoMocker;
+			sourceTree = "<group>";
+		};
+		155BD1DE1EC059DC00D46E73 /* LogHelper */ = {
+			isa = PBXGroup;
+			children = (
+				155BD1DF1EC059F700D46E73 /* HNetworkLogHelper.h */,
+				155BD1E01EC059F700D46E73 /* HNetworkLogHelper.m */,
+			);
+			path = LogHelper;
+			sourceTree = "<group>";
+		};
+		C145B495FFF9D97DF3EF2ECA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FAAF60AB2EED91EA97487C3C /* libPods-HAccessTools.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C160B8B89D7562312D881D90 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1A39DD00BD3F049464FD4C45 /* Pods-HAccessTools.debug.xcconfig */,
+				DA0ACD1D7D5D6E6785861D16 /* Pods-HAccessTools.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		155BD1A31EC055E900D46E73 /* HAccessTools */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 155BD1BB1EC055E900D46E73 /* Build configuration list for PBXNativeTarget "HAccessTools" */;
+			buildPhases = (
+				EB36352FDE59DE2B5ED72966 /* [CP] Check Pods Manifest.lock */,
+				155BD1A01EC055E900D46E73 /* Sources */,
+				155BD1A11EC055E900D46E73 /* Frameworks */,
+				155BD1A21EC055E900D46E73 /* Resources */,
+				665F89B8405BC01F6B22E489 /* [CP] Embed Pods Frameworks */,
+				764EC7B18F429F6749D50D6A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HAccessTools;
+			productName = HAccessTools;
+			productReference = 155BD1A41EC055E900D46E73 /* HAccessTools.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		155BD19C1EC055E900D46E73 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = zct;
+				TargetAttributes = {
+					155BD1A31EC055E900D46E73 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 155BD19F1EC055E900D46E73 /* Build configuration list for PBXProject "HAccessTools" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 155BD19B1EC055E900D46E73;
+			productRefGroup = 155BD1A51EC055E900D46E73 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				155BD1A31EC055E900D46E73 /* HAccessTools */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		155BD1A21EC055E900D46E73 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				155BD1B71EC055E900D46E73 /* LaunchScreen.storyboard in Resources */,
+				155BD1B41EC055E900D46E73 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		665F89B8405BC01F6B22E489 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HAccessTools/Pods-HAccessTools-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		764EC7B18F429F6749D50D6A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HAccessTools/Pods-HAccessTools-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB36352FDE59DE2B5ED72966 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		155BD1A01EC055E900D46E73 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				155BD1DD1EC0571000D46E73 /* PMiniCommodity.m in Sources */,
+				155BD1DB1EC0571000D46E73 /* PMiddleCommodity.m in Sources */,
+				155BD1AF1EC055E900D46E73 /* ViewController.m in Sources */,
+				155BD1DC1EC0571000D46E73 /* PMiniArticle.m in Sources */,
+				155BD1AC1EC055E900D46E73 /* AppDelegate.m in Sources */,
+				155BD1DA1EC0571000D46E73 /* PFeedDAO.m in Sources */,
+				155BD1E11EC059F700D46E73 /* HNetworkLogHelper.m in Sources */,
+				155BD1C81EC0569C00D46E73 /* HNetworkAutoMock.m in Sources */,
+				155BD1D91EC0571000D46E73 /* PCategoryGuidItem.m in Sources */,
+				155BD1C91EC0569C00D46E73 /* TestMocker.m in Sources */,
+				155BD1A91EC055E900D46E73 /* main.m in Sources */,
+				155BD1D81EC0571000D46E73 /* PBannerItem.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		155BD1B51EC055E900D46E73 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				155BD1B61EC055E900D46E73 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		155BD1B91EC055E900D46E73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		155BD1BA1EC055E900D46E73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		155BD1BC1EC055E900D46E73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A39DD00BD3F049464FD4C45 /* Pods-HAccessTools.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HAccessTools/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zct.HAccessTools;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		155BD1BD1EC055E900D46E73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA0ACD1D7D5D6E6785861D16 /* Pods-HAccessTools.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HAccessTools/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zct.HAccessTools;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		155BD19F1EC055E900D46E73 /* Build configuration list for PBXProject "HAccessTools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				155BD1B91EC055E900D46E73 /* Debug */,
+				155BD1BA1EC055E900D46E73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		155BD1BB1EC055E900D46E73 /* Build configuration list for PBXNativeTarget "HAccessTools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				155BD1BC1EC055E900D46E73 /* Debug */,
+				155BD1BD1EC055E900D46E73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 155BD19C1EC055E900D46E73 /* Project object */;
+}
