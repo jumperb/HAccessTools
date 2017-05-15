@@ -54,18 +54,24 @@
         self.userNameKeyWords = @[@"name",@"author",@"user"];
         self.titleKeyWords = @[@"title"];
         self.descKeyWords = @[@"desc",@"description",@"text",@"txt"];
-        self.numberKeyWorks = @[@"number", @"phone", @"mobile", @"identifer"];
+        self.numberKeyWords = @[@"number", @"phone", @"mobile", @"identifer"];
+        self.urlKeyWords = @[@"url",@"link"];
         self.minListCount = 4;
         self.maxListCount = 20;
         
         self.textSeed = @"秦昭襄王四十七年公元前260年秦派左庶长王龁攻韩夺取上党上党的百姓纷纷逃往赵国赵驻兵于长平今山西高平县以便镇抚上党之民四月王龁攻赵参见长平之战赵派廉颇为将抵抗赵军士卒犯秦斥兵秦斥兵斩赵裨将茄六月败赵军取二鄣四尉七月赵军筑垒壁而守秦军又攻赵军垒壁取二尉败其阵夺西垒壁双方僵持多日赵军损失巨大廉颇根据敌强己弱初战失利的形势决定采取坚守营垒以待秦兵进攻的战略秦军多次挑战赵国却不出兵赵王为此屡次责备廉颇秦相应侯范雎派人携千金向赵国权臣行贿用离间计散布流言说秦国所痛恨畏惧的是马服君赵奢之子—赵括廉颇容易对付他快要投降了赵王既怨怒廉颇连吃败仗士卒伤亡惨重又廉颇坚壁固守不肯出战因而听信流言便派赵括替代廉颇为将命他率兵击秦赵括上任之后一反廉颇的部署不仅临战更改部队的制度而且大批撤换将领使赵军战力下降秦见赵中了计暗中命白起为将军王龅为副将赵括虽自大骄狂但他畏惧白起为将所秦王下令有敢泄武安君将者斩史记•白起王翦列传白起面对鲁莽轻敌高傲自恃的对手决定采取后退诱敌分割围歼的战法他命前沿部队担任诱敌任务在赵军进攻时佯败后撤将主力配置在纵深构筑袋形阵地另以精兵5000人楔入敌先头部队与主力之间伺机割裂赵军8月赵括在不明虚实的情况下贸然采取进攻行动秦军假意败走暗中张开两翼设奇兵胁制赵军赵军乘胜追至秦军壁垒秦早有准备壁垒坚固不得入白起令两翼奇兵迅速出击将赵军截为三段赵军首尾分离粮道被断秦军又派轻骑兵不断骚扰赵军赵军的战势危急只得筑垒壁坚守以待救兵秦王听说赵国的粮道被切断亲临河内督战征发十五岁以上男丁从军赏赐民爵一级以阻绝赵国的援军和粮草倾全国之力与赵作战到了九月赵兵已断粮四十六天饥饿不堪甚至自相杀食赵括走投无路重新集结部队分兵四队轮番突围终不能出赵括亲率精兵出战被秦军射杀赵括军队大败四十万士兵投降白起白起与人计议说先前秦已攻陷上党上党的百姓不愿归附秦却归顺了赵国赵国士兵反复无常不全部杀掉恐怕日后会成为灾乱于是使诈把赵降卒全部坑杀只留下二百四十个小兵回赵国报信长平之战秦军先后斩杀和俘获赵军共四十五万人赵国上下为之震惊从此赵国元气大伤一蹶不振";
         
         self.baseformat = @{@"code":@(200),@"msg":@"成功"};
+        
+        self.urlSeed = @[@"http://www.infoq.com/",
+                         @"https://github.com/",
+                         @"http://stackoverflow.com/"];
     }
     return self;
 }
 - (id)mockStringOfPPName:(NSString *)name
 {
+    name = name.lowercaseString;
     if ([self isPPname:name containKeyWords:self.imageKeywords])
     {
         return [NSString stringWithFormat:@"https://unsplash.it/200/300?image=%d", arc4random()%1084+1];
@@ -82,9 +88,17 @@
     {
         return [self randomTextMinLen:40 maxLen:200];
     }
-    else if ([self isPPname:name containKeyWords:self.numberKeyWorks])
+    else if ([self isPPname:name containKeyWords:self.numberKeyWords])
     {
         return [@(arc4random()%1000000) stringValue];
+    }
+    else if ([self isPPname:name containKeyWords:self.numberKeyWords])
+    {
+        return [@(arc4random()%1000000) stringValue];
+    }
+    else if ([self isPPname:name containKeyWords:self.urlKeyWords])
+    {
+        return self.urlSeed[arc4random()%self.urlSeed.count];
     }
     return [self randomTextMinLen:10 maxLen:20];
 }

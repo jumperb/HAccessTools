@@ -11,14 +11,14 @@
 @interface PMiniArticle : HDeserializableObject
 @property (nonatomic) NSString *server_id;
 @property (nonatomic) NSString *title;
-@property (nonatomic) NSString *image;
-@property (nonatomic) NSString *image_width;
-@property (nonatomic) NSString *image_height;
-@property (nonatomic) long favorite_count;
-@property (nonatomic) long browse_count;
+@property (nonatomic) NSString *articleImage;
+@property (nonatomic) int imageWidth;
+@property (nonatomic) int imageHeight;
+@property (nonatomic) long favoriteCount;
+@property (nonatomic) long browseCount;
 @property (nonatomic) NSString *authorId;
-@property (nonatomic) NSString *author_name;
-@property (nonatomic) NSString *author_icon;
+@property (nonatomic) NSString *authorName;
+@property (nonatomic) NSString *authorIcon;
 
 @property (nonatomic) long long server_modified;
 @property (nonatomic) long long server_created;

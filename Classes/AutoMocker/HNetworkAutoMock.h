@@ -24,13 +24,16 @@
 @property (nonatomic) NSArray *userNameKeyWords;
 @property (nonatomic) NSArray *titleKeyWords;
 @property (nonatomic) NSArray *descKeyWords;
-@property (nonatomic) NSArray *numberKeyWorks;
+@property (nonatomic) NSArray *numberKeyWords;
+@property (nonatomic) NSArray *urlKeyWords;
+
 
 @property (nonatomic) int minNumber;
 @property (nonatomic) int maxNumber;
 @property (nonatomic) int minListCount;
 @property (nonatomic) int maxListCount;
 @property (nonatomic) NSString *textSeed;
+@property (nonatomic) NSArray *urlSeed;
 @property (nonatomic) NSDictionary *baseformat;
 
 + (instancetype)shared;
