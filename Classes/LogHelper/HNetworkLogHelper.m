@@ -117,10 +117,44 @@
 - (NSString *)fullurl;
 @end
 
+@interface HNetworkDAO (LogHelper)
+@property (nonatomic) NSString *paramString;
+@end
+
+#import <objc/runtime.h>
+
 @implementation HNetworkDAO (LogHelper)
+
+@dynamic paramString;
+static const void *paramStringAddress = &paramStringAddress;
+- (NSString *)paramString
+{
+    return objc_getAssociatedObject(self, paramStringAddress);
+}
+
+- (void)setParamString:(NSString *)paramString
+{
+    objc_setAssociatedObject(self, paramStringAddress, paramString, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
 + (void)load
 {
     [NSObject methodSwizzleWithClass:self origSEL:@selector(requestFinishedFailureWithError:) overrideSEL:@selector(log_requestFinishedFailureWithError:)];
+    [NSObject methodSwizzleWithClass:self origSEL:@selector(setupParams) overrideSEL:@selector(log_setupParams)];
+}
+- (id)log_setupParams
+{
+    NSDictionary *parametersDict = [self log_setupParams];
+    NSMutableString *paramString = [NSMutableString new];
+    for (NSString *key in parametersDict)
+    {
+        id value = parametersDict[key];
+        if ([value isKindOfClass:[HNetworkMultiDataObj class]]) continue;
+        if (paramString.length > 0) [paramString appendFormat:@"&"];
+        [paramString appendFormat:@"%@=%@", key, [value stringValue]];
+    }
+    self.paramString = paramString;
+    return parametersDict;
 }
 - (void)log_requestFinishedFailureWithError:(NSError *)error
 {
@@ -130,9 +164,9 @@
         NSMutableString *str = [NSMutableString new];
         [str appendFormat:@"网络错误:%@\n", error.localizedDescription];
         [str appendFormat:@"原始数据:\n"];
-        [str appendFormat:@"Request: %@ %@",self.method, [self fullurl]];
-        [str appendFormat:@"Response: %@\n", [self responseString]];
-        
+        [str appendFormat:@"%@ %@\n\n",self.method, [self fullurl]];
+        [str appendFormat:@"Param: %@\n\n", self.paramString];
+        [str appendFormat:@"Response: %@\n\n", [self responseString]];
         [[HNetworkLogHelper shared] logToFile:str];
     });
 }
