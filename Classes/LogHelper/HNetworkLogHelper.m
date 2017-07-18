@@ -9,7 +9,6 @@
 #import "HNetworkLogHelper.h"
 #import <NSFileManager+ext.h>
 #import <UIKit/UIKit.h>
-#import <UIApplication+ext.h>
 
 @interface HNetworkLogHelper () <UIDocumentInteractionControllerDelegate>
 @property (nonatomic) dispatch_queue_t ioQueue;
@@ -106,7 +105,12 @@
 
 - (UIViewController *)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller
 {
-    return [UIApplication naviTop];
+    UINavigationController *navi = (UINavigationController *)[(UIWindow *)[UIApplication sharedApplication].windows[0] rootViewController];
+    if ([navi isKindOfClass:[UINavigationController class]])
+    {
+        return navi.topViewController;
+    }
+    return nil;
 }
 @end
 
