@@ -7,8 +7,10 @@
 //
 
 #import "PMiddleCommodity.h"
+#import "HNetworkAutoMock.h"
 
 @implementation PMiddleCommodity
 ppx(origin_place, HPOptional)
+ppx(server_modified, HPMockAsDate)
 @end
 

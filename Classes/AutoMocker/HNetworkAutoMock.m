@@ -54,8 +54,9 @@
         self.userNameKeyWords = @[@"name",@"author",@"user"];
         self.titleKeyWords = @[@"title"];
         self.descKeyWords = @[@"desc",@"description",@"text",@"txt"];
-        self.numberKeyWords = @[@"number", @"phone", @"mobile", @"identifer"];
+        self.numberKeyWords = @[@"number", @"phone", @"mobile", @"identifer", @"id"];
         self.urlKeyWords = @[@"url",@"link"];
+        self.dateKeyWords = @[@"date", @"time"];
         self.minListCount = 4;
         self.maxListCount = 20;
         
@@ -69,61 +70,79 @@
     }
     return self;
 }
-- (id)mockStringOfPPName:(NSString *)name
-{
-    name = name.lowercaseString;
-    if ([self isPPname:name containKeyWords:self.imageKeywords])
-    {
-        return [NSString stringWithFormat:@"https://unsplash.it/200/300?image=%d", arc4random()%1084+1];
-    }
-    else if ([self isPPname:name containKeyWords:self.userNameKeyWords])
-    {
-        return [self randomTextMinLen:2 maxLen:5];
-    }
-    else if ([self isPPname:name containKeyWords:self.titleKeyWords])
-    {
-        return [self randomTextMinLen:6 maxLen:20];
-    }
-    else if ([self isPPname:name containKeyWords:self.descKeyWords])
-    {
-        return [self randomTextMinLen:40 maxLen:200];
-    }
-    else if ([self isPPname:name containKeyWords:self.numberKeyWords])
-    {
-        return [@(arc4random()%1000000) stringValue];
-    }
-    else if ([self isPPname:name containKeyWords:self.numberKeyWords])
-    {
-        return [@(arc4random()%1000000) stringValue];
-    }
-    else if ([self isPPname:name containKeyWords:self.urlKeyWords])
-    {
-        return self.urlSeed[arc4random()%self.urlSeed.count];
-    }
-    return [self randomTextMinLen:10 maxLen:20];
-}
+
+
 - (NSString *)randomTextMinLen:(int)minLen maxLen:(int)maxLen
 {
     int len = (arc4random()%(maxLen - minLen)) + minLen;
     int local = arc4random()%(self.textSeed.length - len);
     return [self.textSeed substringWithRange:NSMakeRange(local, len)];
 }
-- (id)mockNumberOfPPname:(NSString *)name typeCode:(char)typeCode
+- (NSNumber *)randomDate
 {
-    if (typeCode == 'f' || typeCode == 'd')
-    {
-        return @((arc4random()%10000)*1.0/100);
-    }
-    else return @(arc4random()%100);
+    long long secOfYear = 60 * 60 * 24 * 365;
+    long long date = [[NSDate date] timeIntervalSince1970] + (arc4random() % (secOfYear * 4)) - secOfYear * 2;
+    return  @(date);
 }
-
-- (id)mockNumberOfPPname:(NSString *)name typeCode:(char)typeCode from:(NSNumber *)from to:(NSNumber *)to
+- (id)mockStringOfPPName:(NSString *)name mockAs:(NSString *)mockAs
 {
-    if (typeCode == 'f' || typeCode == 'd')
+    name = name.lowercaseString;
+    if ([self isPPname:name containKeyWords:self.imageKeywords] || [mockAs isEqualToString:HPMockAsImage])
     {
-        return @(from.floatValue + (to.floatValue - from.floatValue) * (arc4random()%100)/100);
+        return [NSString stringWithFormat:@"https://unsplash.it/200/300?image=%d", arc4random()%1084+1];
     }
-    else return @(from.intValue + (arc4random() % (to.intValue - from.intValue + 1)));
+    else if ([self isPPname:name containKeyWords:self.urlKeyWords] || [mockAs isEqualToString:HPMockAsURL])
+    {
+        return self.urlSeed[arc4random()%self.urlSeed.count];
+    }
+    else if ([self isPPname:name containKeyWords:self.dateKeyWords] || [mockAs isEqualToString:HPMockAsDate])
+    {
+        return [self randomDate];
+    }
+    else if ([self isPPname:name containKeyWords:self.numberKeyWords] || [mockAs isEqualToString:HPMockAsNumber])
+    {
+        return [@(arc4random()%1000000) stringValue];
+    }
+    else if ([self isPPname:name containKeyWords:self.userNameKeyWords] || [mockAs isEqualToString:HPMockAsUserName])
+    {
+        return [self randomTextMinLen:2 maxLen:5];
+    }
+    else if ([self isPPname:name containKeyWords:self.titleKeyWords] || [mockAs isEqualToString:HPMockAsTitle])
+    {
+        return [self randomTextMinLen:6 maxLen:20];
+    }
+    else if ([self isPPname:name containKeyWords:self.descKeyWords] || [mockAs isEqualToString:HPMockAsDesc])
+    {
+        return [self randomTextMinLen:40 maxLen:200];
+    }
+    
+    return [self randomTextMinLen:10 maxLen:20];
+}
+- (id)mockNumberOfPPname:(NSString *)name typeCode:(char)typeCode from:(NSNumber *)from to:(NSNumber *)to mockAs:(NSString *)mockAs
+{
+    if ([self isPPname:name containKeyWords:self.dateKeyWords] || [mockAs isEqualToString:HPMockAsDate])
+    {
+        return [self randomDate];
+    }
+    else
+    {
+        if (from && to)
+        {
+            if (typeCode == 'f' || typeCode == 'd')
+            {
+                return @(from.floatValue + (to.floatValue - from.floatValue) * (arc4random()%100)/100);
+            }
+            else return @(from.intValue + (arc4random() % (to.intValue - from.intValue + 1)));
+        }
+        else
+        {
+            if (typeCode == 'f' || typeCode == 'd')
+            {
+                return @((arc4random()%10000)*1.0/100);
+            }
+            else return @(arc4random()%100);
+        }
+    }
 }
 
 - (BOOL)isPPname:(NSString *)ppanme containKeyWords:(NSArray *)keywords
@@ -282,7 +301,7 @@
     }
     else if ([entity isKindOfClass:[NSString class]])
     {
-        return [self mockStringOfPPName:nil];
+        return [self mockStringOfPPName:nil mockAs:nil];
     }
     else
     {
@@ -300,6 +319,7 @@
             NSNumber *isIgnore = nil;
             NSNumber *isOptional = nil;
             NSNumber *isAutocast = nil;
+            NSString *mockAs = nil;
             //获取 注解
             for (id ext in exts)
             {
@@ -346,6 +366,34 @@
                 {
                     isAutocast = @(YES);
                 }
+                else if ([ext isEqualToString:HPMockAsImage])
+                {
+                    mockAs = HPMockAsImage;
+                }
+                else if ([ext isEqualToString:HPMockAsURL])
+                {
+                    mockAs = HPMockAsURL;
+                }
+                else if ([ext isEqualToString:HPMockAsDate])
+                {
+                    mockAs = HPMockAsDate;
+                }
+                else if ([ext isEqualToString:HPMockAsNumber])
+                {
+                    mockAs = HPMockAsNumber;
+                }
+                else if ([ext isEqualToString:HPMockAsUserName])
+                {
+                    mockAs = HPMockAsUserName;
+                }
+                else if ([ext isEqualToString:HPMockAsTitle])
+                {
+                    mockAs = HPMockAsTitle;
+                }
+                else if ([ext isEqualToString:HPMockAsDesc])
+                {
+                    mockAs = HPMockAsDesc;
+                }
             }
             if (isIgnore) continue;
 
@@ -358,11 +406,11 @@
                 id testValue = [ppclass new];
                 if ([testValue isKindOfClass:[NSString class]])
                 {
-                    [entityDict setObject:[self mockStringOfPPName:ppDetail.name] forKey:mappedKey];
+                    [entityDict setObject:[self mockStringOfPPName:ppDetail.name mockAs:mockAs] forKey:mappedKey];
                 }
                 else if ([testValue isKindOfClass:[NSNumber class]])
                 {
-                    [entityDict setObject:[self mockNumberOfPPname:ppDetail.name typeCode:'i'] forKey:mappedKey];
+                    [entityDict setObject:[self mockNumberOfPPname:ppDetail.name typeCode:'i' from:scopeFrom to:scopeTo mockAs:mockAs] forKey:mappedKey];
                 }
                 else if ([testValue isKindOfClass:[NSArray class]] || [testValue isKindOfClass:[NSSet class]])
                 {
@@ -378,11 +426,11 @@
                         {
                             if ([innerType isSubclassOfClass:[NSString class]])
                             {
-                                [arr addObject:[self mockStringOfPPName:ppDetail.name]];
+                                [arr addObject:[self mockStringOfPPName:ppDetail.name mockAs:mockAs]];
                             }
                             else if ([innerType isSubclassOfClass:[NSNumber class]])
                             {
-                                [arr addObject:[self mockNumberOfPPname:ppDetail.name typeCode:'i']];
+                                [arr addObject:[self mockNumberOfPPname:ppDetail.name typeCode:'i' from:scopeFrom to:scopeTo mockAs:mockAs]];
                             }
                             else
                             {
@@ -453,15 +501,7 @@
             }
             else
             {
-                //处理值域
-                if (scopeFrom && scopeTo)
-                {
-                    [entityDict setObject:[self mockNumberOfPPname:ppDetail.name typeCode:ppDetail.typeCode from:scopeFrom to:scopeTo] forKey:mappedKey];
-                }
-                else
-                {
-                    [entityDict setObject:[self mockNumberOfPPname:ppDetail.name typeCode:ppDetail.typeCode] forKey:mappedKey];
-                }
+                [entityDict setObject:[self mockNumberOfPPname:ppDetail.name typeCode:ppDetail.typeCode from:scopeFrom to:scopeTo mockAs:mockAs] forKey:mappedKey];
             }
         }
         return entityDict;

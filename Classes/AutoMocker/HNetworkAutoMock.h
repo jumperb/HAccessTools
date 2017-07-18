@@ -17,6 +17,18 @@
 //            return url;
 //        }
 //
+
+//注意，以下注解仅仅对字符串类型的属性有效
+#define HPMockAsImage @"HPMockAsImage"
+#define HPMockAsUserName @"HPMockAsUserName"
+#define HPMockAsTitle @"HPMockAsTitle"
+#define HPMockAsDesc @"HPMockAsDesc"
+#define HPMockAsNumber @"HPMockAsNumber"
+#define HPMockAsURL @"HPMockAsURL"
+
+//这个对数字和字符串均有效
+#define HPMockAsDate @"HPMockAsDate"
+
 @interface HNetworkAutoMock : NSObject
 
 //下列参数填写方式参考.m里面的默认值
@@ -26,6 +38,7 @@
 @property (nonatomic) NSArray *descKeyWords;
 @property (nonatomic) NSArray *numberKeyWords;
 @property (nonatomic) NSArray *urlKeyWords;
+@property (nonatomic) NSArray *dateKeyWords;
 
 
 @property (nonatomic) int minNumber;
@@ -42,9 +55,9 @@
 
 
 //这里面决定各种关键字长度，可以按需求直接覆盖
-- (id)mockStringOfPPName:(NSString *)name;
+- (id)mockStringOfPPName:(NSString *)name mockAs:(NSString *)mockAs;
 //这里面决定不定number的值域，可以按需求直接覆盖
-- (id)mockNumberOfPPname:(NSString *)name typeCode:(char)typeCode;
+- (id)mockNumberOfPPname:(NSString *)name typeCode:(char)typeCode from:(NSNumber *)from to:(NSNumber *)to mockAs:(NSString *)mockAs;
 
 //判断关键字命中
 - (BOOL)isPPname:(NSString *)ppanme containKeyWords:(NSArray *)keywords;

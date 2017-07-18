@@ -6,10 +6,10 @@
 //  Copyright © 2016年 pinguo. All rights reserved.
 //
 
-#import <HAccess/HEntity.h>
+#import <HAccess/HDeserializableObject.h>
 #import "PCommodityDefines.h"
 
-@interface PMiniCommodity : HEntity
+@interface PMiniCommodity : HDeserializableObject
 @property (nonatomic) NSString *cid;
 @property (nonatomic) NSString *img;
 @property (nonatomic) NSString *title;

@@ -7,7 +7,10 @@
 //
 
 #import "PMiniArticle.h"
+#import "HNetworkAutoMock.h"
 
 @implementation PMiniArticle
 ppx(author_icon, HPOptional)
+ppx(server_modified, HPMockAsDate)
+ppx(server_created, HPMockAsDate)
 @end
