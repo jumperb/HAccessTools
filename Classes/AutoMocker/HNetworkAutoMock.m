@@ -87,31 +87,60 @@
 - (id)mockStringOfPPName:(NSString *)name mockAs:(NSString *)mockAs
 {
     name = name.lowercaseString;
-    if ([self isPPname:name containKeyWords:self.imageKeywords] || [mockAs isEqualToString:HPMockAsImage])
+    if ([mockAs isEqualToString:HPMockAsImage])
     {
         return [NSString stringWithFormat:@"https://unsplash.it/200/300?image=%d", arc4random()%1084+1];
     }
-    else if ([self isPPname:name containKeyWords:self.urlKeyWords] || [mockAs isEqualToString:HPMockAsURL])
+    else if ([mockAs isEqualToString:HPMockAsURL])
     {
         return self.urlSeed[arc4random()%self.urlSeed.count];
     }
-    else if ([self isPPname:name containKeyWords:self.dateKeyWords] || [mockAs isEqualToString:HPMockAsDate])
+    else if ([mockAs isEqualToString:HPMockAsDate])
     {
         return [self randomDate];
     }
-    else if ([self isPPname:name containKeyWords:self.numberKeyWords] || [mockAs isEqualToString:HPMockAsNumber])
+    else if ([mockAs isEqualToString:HPMockAsNumber])
     {
         return [@(arc4random()%1000000) stringValue];
     }
-    else if ([self isPPname:name containKeyWords:self.userNameKeyWords] || [mockAs isEqualToString:HPMockAsUserName])
+    else if ([mockAs isEqualToString:HPMockAsUserName])
     {
         return [self randomTextMinLen:2 maxLen:5];
     }
-    else if ([self isPPname:name containKeyWords:self.titleKeyWords] || [mockAs isEqualToString:HPMockAsTitle])
+    else if ([mockAs isEqualToString:HPMockAsTitle])
     {
         return [self randomTextMinLen:6 maxLen:20];
     }
-    else if ([self isPPname:name containKeyWords:self.descKeyWords] || [mockAs isEqualToString:HPMockAsDesc])
+    else if ([mockAs isEqualToString:HPMockAsDesc])
+    {
+        return [self randomTextMinLen:40 maxLen:200];
+    }
+    
+    if ([self isPPname:name containKeyWords:self.imageKeywords])
+    {
+        return [NSString stringWithFormat:@"https://unsplash.it/200/300?image=%d", arc4random()%1084+1];
+    }
+    else if ([self isPPname:name containKeyWords:self.urlKeyWords])
+    {
+        return self.urlSeed[arc4random()%self.urlSeed.count];
+    }
+    else if ([self isPPname:name containKeyWords:self.dateKeyWords])
+    {
+        return [self randomDate];
+    }
+    else if ([self isPPname:name containKeyWords:self.numberKeyWords])
+    {
+        return [@(arc4random()%1000000) stringValue];
+    }
+    else if ([self isPPname:name containKeyWords:self.userNameKeyWords])
+    {
+        return [self randomTextMinLen:2 maxLen:5];
+    }
+    else if ([self isPPname:name containKeyWords:self.titleKeyWords])
+    {
+        return [self randomTextMinLen:6 maxLen:20];
+    }
+    else if ([self isPPname:name containKeyWords:self.descKeyWords])
     {
         return [self randomTextMinLen:40 maxLen:200];
     }
@@ -196,7 +225,7 @@
             root = dict;
             NSArray *comps = [dao.deserializeKeyPath componentsSeparatedByString:@"."];
             int step = 0;
-
+            
             for (NSString *comp in comps)
             {
                 NSDictionary *dict2 = dict[comp];
@@ -234,7 +263,7 @@
     for (NSString *daoClassName in allDaos)
     {
         Class daoClass = NSClassFromString(daoClassName);
-
+        
         NSString *jsonString = [self mockDataOfDAO:daoClass];
         NSString *fileName = [dir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.json", daoClassName]];
         [jsonString writeToFile:fileName atomically:YES encoding:NSUTF8StringEncoding error:nil];
@@ -246,7 +275,7 @@
     int numClasses;
     Class *classes = NULL;
     numClasses = objc_getClassList(NULL,0);
-
+    
     if (numClasses >0 )
     {
         classes = (__unsafe_unretained Class *)malloc(sizeof(Class) * numClasses);
@@ -307,7 +336,7 @@
     {
         NSMutableDictionary *entityDict = [NSMutableDictionary new];
         NSArray *pplist = [[HPropertyMgr shared] entityPropertyDetailList:NSStringFromClass(entityClass) isDepSearch:YES];
-
+        
         for (HPropertyDetail *ppDetail in pplist)
         {
             NSArray *exts = [entityClass annotations:ppDetail.name];
@@ -347,7 +376,7 @@
                     {
                         continue;
                     }
-
+                    
                     divideType = dict[@"dividetype"];
                     if (divideType)
                     {
@@ -396,7 +425,7 @@
                 }
             }
             if (isIgnore) continue;
-
+            
             NSString *mappedKey = ppDetail.name;
             if (keyMapto) mappedKey = keyMapto;
             //根据类型填入值
@@ -497,7 +526,7 @@
                     NSLog(@"HNetworkAutoMock: not supported class '%@' in deserialization, you can ignore it, abort", ppDetail.name);
                     abort();
                 }
-
+                
             }
             else
             {
