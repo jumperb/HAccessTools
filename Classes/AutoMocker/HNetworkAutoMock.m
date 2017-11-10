@@ -126,7 +126,7 @@
     }
     else if ([self isPPname:name containKeyWords:self.dateKeyWords])
     {
-        return [self randomDate];
+        return [[self randomDate] stringValue];
     }
     else if ([self isPPname:name containKeyWords:self.numberKeyWords])
     {
@@ -577,3 +577,4 @@
     });
 }
 @end
+
