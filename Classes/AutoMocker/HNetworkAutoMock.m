@@ -335,7 +335,7 @@
     else
     {
         NSMutableDictionary *entityDict = [NSMutableDictionary new];
-        NSArray *pplist = [[HPropertyMgr shared] entityPropertyDetailList:NSStringFromClass(entityClass) isDepSearch:YES];
+        NSArray *pplist = [[HPropertyMgr shared] entityPropertyDetailList:NSStringFromClass(entityClass) deepTo:[HDeserializableObject class]];
         
         for (HPropertyDetail *ppDetail in pplist)
         {
