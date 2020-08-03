@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   
   s.requires_arc = true
 
-  s.ios.deployment_target = '7.0'
+  s.ios.deployment_target = '9.0'
 
   s.dependency 'HAccess/Network'
   s.ios.source_files = 'Classes/*/*.{h,m,mm,cpp,c}'
