@@ -59,5 +59,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSDictionary *baseformat;
 
 + (instancetype)shared;
+
+
+#pragma mark - Protected
+//这里面决定各种关键字长度，可以按需求直接覆盖
+- (id)mockStringOfPPName:(NSString *)name mockAs:(NSString *)mockAs;
+//这里面决定不定number的值域，可以按需求直接覆盖
+- (id)mockNumberOfPPname:(NSString *)name typeCode:(char)typeCode from:(NSNumber *)from to:(NSNumber *)to mockAs:(NSString *)mockAs;
+//判断关键字命中
+- (BOOL)isPPname:(NSString *)ppanme containKeyWords:(NSArray *)keywords;
 @end
 NS_ASSUME_NONNULL_END
