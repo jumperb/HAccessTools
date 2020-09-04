@@ -21,8 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addMenu:@"自动mock" callback:^(id sender, id data) {
-        [[HNetworkAutoMock shared] enable];
         PFeedDAO *dao = [PFeedDAO new];
+        dao.enableAutoMock = YES;
         dao.timeline = 0;
         dao.timeType = 1;
         [dao start:^(id sender, id data, NSError *error) {
@@ -31,8 +31,9 @@
     }];
     
     [self addMenu:@"自定义自动mock" callback:^(id sender, id data) {
-        [[TestMocker shared] enable];
         PFeedDAO *dao = [PFeedDAO new];
+        dao.autoMocker = [TestMocker shared];
+        dao.enableAutoMock = YES;
         dao.timeline = 0;
         dao.timeType = 1;
         [dao start:^(id sender, id data, NSError *error) {

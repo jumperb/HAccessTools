@@ -1,12 +1,21 @@
 //
-//  HNetworkAutoMock.h
-//  PenYou
+//  HNetworkDAO+AutoMock.h
+//  HAccessTools
 //
-//  Created by zhangchutian on 2017/3/31.
-//  Copyright © 2017年 pinguo. All rights reserved.
+//  Created by zct on 2020/9/4.
+//  Copyright © 2020 zct. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <HAccess/HNetworkDAO.h>
+
+NS_ASSUME_NONNULL_BEGIN
+@class HNetworkAutoMock;
+@interface HNetworkDAO (AutoMock)
+@property (nonatomic) BOOL enableAutoMock;
+@property (nonatomic) HNetworkAutoMock* autoMocker;
+@end
+
+
 // 自动mocker,写完demo就可以调试了，不用去写mock文件，更不用等服务端开发
 // 其中图片用的unsplash.it的
 // 项目中可以这样来适配图片大小
@@ -50,15 +59,5 @@
 @property (nonatomic) NSDictionary *baseformat;
 
 + (instancetype)shared;
-- (void)enable;
-- (void)disable;
-
-
-//这里面决定各种关键字长度，可以按需求直接覆盖
-- (id)mockStringOfPPName:(NSString *)name mockAs:(NSString *)mockAs;
-//这里面决定不定number的值域，可以按需求直接覆盖
-- (id)mockNumberOfPPname:(NSString *)name typeCode:(char)typeCode from:(NSNumber *)from to:(NSNumber *)to mockAs:(NSString *)mockAs;
-
-//判断关键字命中
-- (BOOL)isPPname:(NSString *)ppanme containKeyWords:(NSArray *)keywords;
 @end
+NS_ASSUME_NONNULL_END

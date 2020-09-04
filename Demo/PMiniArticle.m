@@ -7,7 +7,7 @@
 //
 
 #import "PMiniArticle.h"
-#import "HNetworkAutoMock.h"
+#import "HNetworkDAO+AutoMock.h"
 
 @implementation PMiniArticle
 ppx(author_icon, HPOptional)

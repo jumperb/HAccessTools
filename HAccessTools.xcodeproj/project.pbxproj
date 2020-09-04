@@ -12,7 +12,6 @@
 		155BD1AF1EC055E900D46E73 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 155BD1AE1EC055E900D46E73 /* ViewController.m */; };
 		155BD1B41EC055E900D46E73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 155BD1B31EC055E900D46E73 /* Assets.xcassets */; };
 		155BD1B71EC055E900D46E73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 155BD1B51EC055E900D46E73 /* LaunchScreen.storyboard */; };
-		155BD1C81EC0569C00D46E73 /* HNetworkAutoMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 155BD1C11EC0569C00D46E73 /* HNetworkAutoMock.m */; };
 		155BD1C91EC0569C00D46E73 /* TestMocker.m in Sources */ = {isa = PBXBuildFile; fileRef = 155BD1C51EC0569C00D46E73 /* TestMocker.m */; };
 		155BD1D81EC0571000D46E73 /* PBannerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 155BD1CC1EC0571000D46E73 /* PBannerItem.m */; };
 		155BD1D91EC0571000D46E73 /* PCategoryGuidItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 155BD1CE1EC0571000D46E73 /* PCategoryGuidItem.m */; };
@@ -21,6 +20,7 @@
 		155BD1DC1EC0571000D46E73 /* PMiniArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 155BD1D51EC0571000D46E73 /* PMiniArticle.m */; };
 		155BD1DD1EC0571000D46E73 /* PMiniCommodity.m in Sources */ = {isa = PBXBuildFile; fileRef = 155BD1D71EC0571000D46E73 /* PMiniCommodity.m */; };
 		155BD1E11EC059F700D46E73 /* HNetworkLogHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 155BD1E01EC059F700D46E73 /* HNetworkLogHelper.m */; };
+		15B7D8E02501F0F400A7138B /* HNetworkDAO+AutoMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B7D8DF2501F0F400A7138B /* HNetworkDAO+AutoMock.m */; };
 		FF9CBA9EB76661E5254AB31A /* libPods-HAccessTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAAF60AB2EED91EA97487C3C /* libPods-HAccessTools.a */; };
 /* End PBXBuildFile section */
 
@@ -34,8 +34,6 @@
 		155BD1B31EC055E900D46E73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		155BD1B61EC055E900D46E73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		155BD1B81EC055E900D46E73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		155BD1C01EC0569C00D46E73 /* HNetworkAutoMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNetworkAutoMock.h; sourceTree = "<group>"; };
-		155BD1C11EC0569C00D46E73 /* HNetworkAutoMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNetworkAutoMock.m; sourceTree = "<group>"; };
 		155BD1C41EC0569C00D46E73 /* TestMocker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestMocker.h; sourceTree = "<group>"; };
 		155BD1C51EC0569C00D46E73 /* TestMocker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestMocker.m; sourceTree = "<group>"; };
 		155BD1CB1EC0571000D46E73 /* PBannerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBannerItem.h; sourceTree = "<group>"; };
@@ -53,6 +51,8 @@
 		155BD1D71EC0571000D46E73 /* PMiniCommodity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMiniCommodity.m; sourceTree = "<group>"; };
 		155BD1DF1EC059F700D46E73 /* HNetworkLogHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNetworkLogHelper.h; sourceTree = "<group>"; };
 		155BD1E01EC059F700D46E73 /* HNetworkLogHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNetworkLogHelper.m; sourceTree = "<group>"; };
+		15B7D8DE2501F0F400A7138B /* HNetworkDAO+AutoMock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HNetworkDAO+AutoMock.h"; sourceTree = "<group>"; };
+		15B7D8DF2501F0F400A7138B /* HNetworkDAO+AutoMock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HNetworkDAO+AutoMock.m"; sourceTree = "<group>"; };
 		1A39DD00BD3F049464FD4C45 /* Pods-HAccessTools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HAccessTools.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HAccessTools/Pods-HAccessTools.debug.xcconfig"; sourceTree = "<group>"; };
 		DA0ACD1D7D5D6E6785861D16 /* Pods-HAccessTools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HAccessTools.release.xcconfig"; path = "Pods/Target Support Files/Pods-HAccessTools/Pods-HAccessTools.release.xcconfig"; sourceTree = "<group>"; };
 		FAAF60AB2EED91EA97487C3C /* libPods-HAccessTools.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HAccessTools.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,8 +125,8 @@
 		155BD1BF1EC0569C00D46E73 /* AutoMocker */ = {
 			isa = PBXGroup;
 			children = (
-				155BD1C01EC0569C00D46E73 /* HNetworkAutoMock.h */,
-				155BD1C11EC0569C00D46E73 /* HNetworkAutoMock.m */,
+				15B7D8DE2501F0F400A7138B /* HNetworkDAO+AutoMock.h */,
+				15B7D8DF2501F0F400A7138B /* HNetworkDAO+AutoMock.m */,
 			);
 			path = AutoMocker;
 			sourceTree = "<group>";
@@ -228,6 +228,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -286,8 +287,8 @@
 				155BD1AC1EC055E900D46E73 /* AppDelegate.m in Sources */,
 				155BD1DA1EC0571000D46E73 /* PFeedDAO.m in Sources */,
 				155BD1E11EC059F700D46E73 /* HNetworkLogHelper.m in Sources */,
-				155BD1C81EC0569C00D46E73 /* HNetworkAutoMock.m in Sources */,
 				155BD1D91EC0571000D46E73 /* PCategoryGuidItem.m in Sources */,
+				15B7D8E02501F0F400A7138B /* HNetworkDAO+AutoMock.m in Sources */,
 				155BD1C91EC0569C00D46E73 /* TestMocker.m in Sources */,
 				155BD1A91EC055E900D46E73 /* main.m in Sources */,
 				155BD1D81EC0571000D46E73 /* PBannerItem.m in Sources */,

@@ -6,7 +6,7 @@
 //  Copyright © 2017年 zct. All rights reserved.
 //
 
-#import "HNetworkAutoMock.h"
+#import "HNetworkDAO+AutoMock.h"
 
 @interface TestMocker : HNetworkAutoMock
 + (instancetype)shared;

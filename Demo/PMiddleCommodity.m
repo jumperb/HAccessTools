@@ -7,7 +7,7 @@
 //
 
 #import "PMiddleCommodity.h"
-#import "HNetworkAutoMock.h"
+#import "HNetworkDAO+AutoMock.h"
 
 @implementation PMiddleCommodity
 ppx(origin_place, HPOptional)

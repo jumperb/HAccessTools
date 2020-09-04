@@ -1,17 +1,16 @@
 //
-//  HNetworkAutoMock.m
-//  PenYou
+//  HNetworkDAO+AutoMock.m
+//  HAccessTools
 //
-//  Created by zhangchutian on 2017/3/31.
-//  Copyright © 2017年 pinguo. All rights reserved.
+//  Created by zct on 2020/9/4.
+//  Copyright © 2020 zct. All rights reserved.
 //
 
-#import "HNetworkAutoMock.h"
+#import "HNetworkDAO+AutoMock.h"
 #import <objc/runtime.h>
-#import <HNetworkDAO.h>
-#import <NSObject+ext.h>
-#import <NSFileManager+ext.h>
-#import <HClassManager.h>
+#import <Hodor/NSObject+ext.h>
+#import <Hodor/NSFileManager+ext.h>
+#import <Hodor/HClassManager.h>
 
 //访问私有属性
 @interface HNEntityDeserializer ()
@@ -23,15 +22,6 @@
 @end
 
 
-@protocol HNetworkMockerInterface <NSObject>
-- (NSString *)mockDataOfDAO:(Class)daoClass;
-@end
-
-
-
-@interface HNetworkAutoMock () <HNetworkMockerInterface>
-@end
-
 @implementation HNetworkAutoMock
 
 + (instancetype)shared
@@ -41,7 +31,6 @@
     
     dispatch_once(&pred, ^{
         o = [[self alloc] init];
-        [o enable];
     });
     return o;
 }
@@ -84,6 +73,7 @@
     long long date = [[NSDate date] timeIntervalSince1970] + (arc4random() % (secOfYear * 4)) - secOfYear * 2;
     return  @(date);
 }
+//这里面决定各种关键字长度，可以按需求直接覆盖
 - (id)mockStringOfPPName:(NSString *)name mockAs:(NSString *)mockAs
 {
     name = name.lowercaseString;
@@ -147,6 +137,7 @@
     
     return [self randomTextMinLen:10 maxLen:20];
 }
+//这里面决定不定number的值域，可以按需求直接覆盖
 - (id)mockNumberOfPPname:(NSString *)name typeCode:(char)typeCode from:(NSNumber *)from to:(NSNumber *)to mockAs:(NSString *)mockAs
 {
     if ([self isPPname:name containKeyWords:self.dateKeyWords] || [mockAs isEqualToString:HPMockAsDate])
@@ -173,7 +164,7 @@
         }
     }
 }
-
+//判断关键字命中
 - (BOOL)isPPname:(NSString *)ppanme containKeyWords:(NSArray *)keywords
 {
     for (NSString *keyword in keywords)
@@ -537,44 +528,43 @@
     }
     return nil;
 }
-
-- (void)enable
-{
-    [self disable];
-    [HClassManager registerClass:self.class forProtocal:@protocol(HNetworkMockerInterface) creator:@"shared"];
-}
-- (void)disable
-{
-    NSString *key = [NSString stringWithFormat:@"%@RegKey", NSStringFromProtocol(@protocol(HNetworkMockerInterface))];
-    [HClassManager removeClassForKey:key];
-}
 @end
-
-@interface HNetworkDAO ()
-- (void)mockDoMockFileRequest;
-@end
-
 @implementation HNetworkDAO (AutoMock)
-+ (void)load
-{
-    [NSObject methodSwizzleWithClass:self origSEL:@selector(doMockFileRequest) overrideSEL:@selector(auto_doMockFileRequest)];
+@dynamic enableAutoMock;
+
+- (BOOL)enableAutoMock {
+    return [objc_getAssociatedObject(self, @selector(enableAutoMock)) boolValue];
 }
-- (void)auto_doMockFileRequest
-{
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        id<HNetworkMockerInterface> mocker = [HClassManager getObjectOfProtocal:@protocol(HNetworkMockerInterface)];
-        if (mocker)
-        {
-            NSString *jsonString = [mocker mockDataOfDAO:self.class];
+- (void)setEnableAutoMock:(BOOL)enableAutoMock {
+    objc_setAssociatedObject(self, @selector(enableAutoMock), @(enableAutoMock), OBJC_ASSOCIATION_ASSIGN);
+    if (enableAutoMock) {
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            [NSObject methodSwizzleWithClass:[HNetworkDAO class] origSEL:@selector(startWithQueueName:) overrideSEL:@selector(automock_startWithQueueName:)];
+        });
+    }
+}
+- (HNetworkAutoMock *)autoMocker {
+    HNetworkAutoMock *mocker = objc_getAssociatedObject(self, @selector(autoMocker));
+    if (!mocker) {
+        mocker = [HNetworkAutoMock shared];
+        self.autoMocker = mocker;
+    }
+    return mocker;
+}
+- (void)setAutoMocker:(HNetworkAutoMock *)autoMocker {
+    objc_setAssociatedObject(self, @selector(autoMocker), autoMocker, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+- (void)automock_startWithQueueName:(NSString*)queueName {
+    if (self.enableAutoMock) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            NSString *jsonString = [self.autoMocker mockDataOfDAO:self.class];
             self.responseData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
             [self requestFinishedSucessWithInfo:self.responseData response:nil];
-        }
-        else
-        {
-            //调用原来的
-            [self auto_doMockFileRequest];
-        }
-    });
+        });
+    }
+    else {
+        [self automock_startWithQueueName:queueName];
+    }
 }
 @end
-
