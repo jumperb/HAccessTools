@@ -26,7 +26,7 @@
         dao.timeline = 0;
         dao.timeType = 1;
         [dao start:^(id sender, id data, NSError *error) {
-            NSLog(@"%@ %@", data, [data jsonString]);
+            NSLog(@"%@ %@", data, [data h_jsonString]);
         }];
     }];
     
@@ -37,7 +37,7 @@
         dao.timeline = 0;
         dao.timeType = 1;
         [dao start:^(id sender, id data, NSError *error) {
-            NSLog(@"%@ %@", data, [data jsonString]);
+            NSLog(@"%@ %@", data, [data h_jsonString]);
         }];
     }];
     
@@ -49,7 +49,7 @@
         dao.timeType = 1;
         dao.isMock = NO;
         [dao start:^(id sender, id data, NSError *error) {
-            NSLog(@"%@ %@", data, [data jsonString]);
+            NSLog(@"%@ %@", data, [data h_jsonString]);
         }];
     }];
     

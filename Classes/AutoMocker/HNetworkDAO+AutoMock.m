@@ -240,7 +240,7 @@
             }
         }
         NSLog(@"HNetworkAutoMock: finish mock %@", daoClassName);
-        return [root jsonString];
+        return [root h_jsonString];
     }
     return nil;
 }
