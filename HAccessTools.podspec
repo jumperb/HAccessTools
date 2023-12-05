@@ -1,9 +1,9 @@
 
 Pod::Spec.new do |s|
 
-  s.name         = "HAccessTools"
-  s.version      = "1.2.2"
-  s.summary      = "A short description of HAccessTools."
+  s.name = "HAccessTools"
+  s.version = "1.2.3"
+  s.summary = "A short description of HAccessTools."
 
   s.description  = <<-DESC
                    A longer description of HAccessTools in Markdown format.
