@@ -1,11 +1,6 @@
-# Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
-
+platform :ios, '10.0'
+source 'https://cdn.cocoapods.org/'
 target 'HAccessTools' do
-  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
-  # use_frameworks!
-
-  # Pods for HAccessTools
   pod 'HAccess/Network'
   pod 'HTestVC'
 end
