@@ -10,9 +10,8 @@
 #import <Hodor/NSFileManager+ext.h>
 #import <UIKit/UIKit.h>
 #import <HAccess/HNetworkDAO.h>
+#import <Hodor/NSObject+ext.h>
 
-
-#import <NSObject+ext.h>
 @interface HNetworkLogHelper () <UIDocumentInteractionControllerDelegate>
 @property (nonatomic) dispatch_queue_t ioQueue;
 @property (nonatomic) BOOL enabled;
