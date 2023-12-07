@@ -309,14 +309,13 @@
 - (NSDictionary *)genEntity:(Class)entityClass
 {
     id entity = [entityClass new];
+    Class baseClass = [NSObject class];
+    if ([entity isKindOfClass:[HDeserializableObject class]]) {
+        baseClass = [HDeserializableObject class];
+    }
     if (!entity)
     {
         NSLog(@"HNetworkAutoMock: could not gen Object of '%@', abort", NSStringFromClass(entityClass));
-        abort();
-    }
-    else if (![entity isKindOfClass:[HDeserializableObject class]])
-    {
-        NSLog(@"HNetworkAutoMock: not supported class '%@' in deserialization, because it is not a HDeserializableObject, abort", NSStringFromClass(entityClass));
         abort();
     }
     else if ([entity isKindOfClass:[NSString class]])
@@ -326,7 +325,8 @@
     else
     {
         NSMutableDictionary *entityDict = [NSMutableDictionary new];
-        NSArray *pplist = [[HPropertyMgr shared] entityPropertyDetailList:NSStringFromClass(entityClass) deepTo:[HDeserializableObject class]];
+        
+        NSArray *pplist = [[HPropertyMgr shared] entityPropertyDetailList:NSStringFromClass(entityClass) deepTo:baseClass];
         
         for (HPropertyDetail *ppDetail in pplist)
         {
