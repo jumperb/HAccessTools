@@ -39,7 +39,7 @@
 {
     self = [super init];
     if (self) {
-        self.imageKeywords = @[@"image",@"img",@"icon",@"avata",@"pic",@"photo"];
+        self.imageKeywords = @[@"image",@"img",@"icon",@"avata",@"pic",@"photo", @"screenshot", @"printscreen", @"snipping"];
         self.userNameKeyWords = @[@"name",@"author",@"user"];
         self.titleKeyWords = @[@"title"];
         self.descKeyWords = @[@"desc",@"description",@"text",@"txt"];
